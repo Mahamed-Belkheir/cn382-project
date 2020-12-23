@@ -1,0 +1,10 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/default.Master" AutoEventWireup="true" CodeBehind="signform.master.cs" Inherits="CN382_Project.signform" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainLayout" runat="server">
+    <div class="container-fluid">
+        <div class="col-12 d-flex justify-content-center mt-5">
+            <div class="row-12 d-flex flex-column justify-content-center align-items-center mt-5 border rounded shadow-sm bg-white border-light p-5">
+                <asp:ContentPlaceHolder ID="SignForm" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+</asp:Content>

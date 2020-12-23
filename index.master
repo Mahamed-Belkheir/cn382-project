@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/default.Master" AutoEventWireup="true" CodeBehind="index.master.cs" Inherits="CN382_Project.index" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainLayout" runat="server">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm mt-2 mb-3">
+            <div class="container">
+                <a href="index.aspx" class="navbar-brand mr-3">E Commerce</a>
+                <button type="button" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <asp:HyperLink id="SignInButton" runat="server" NavigateUrl="signin.aspx"  class="nav-item nav-link">Signin</asp:HyperLink>
+                        <asp:HyperLink id="SignUpButton" runat="server" NavigateUrl="signup.aspx"  class="nav-item nav-link">Signup</asp:HyperLink>
+                        <asp:HyperLink id="SignOutButton" runat="server" NavigateUrl="signout.aspx"  class="nav-item nav-link">Signout</asp:HyperLink>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="MessageBox" runat="server">
+
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</asp:Content>
