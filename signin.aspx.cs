@@ -49,6 +49,10 @@ namespace CN382_Project
             MessageBox.InnerText = "signed in successfully!";
             MessageBox.Attributes.Add("class", "alert alert-success mt-3");
             MessageBox.Attributes.Add("role", "alert");
+
+            ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                "setTimeout(function() { window.location.replace('index.aspx') }, 1000);", true
+            );
             
         }
 

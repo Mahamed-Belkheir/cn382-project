@@ -89,6 +89,7 @@
   <ItemGroup>
     <Content Include="additem.aspx" />
     <Content Include="deleteitem.aspx" />
+    <Content Include="edititem.aspx" />
     <Content Include="index.aspx" />
     <Content Include="myitems.aspx" />
     <Content Include="notfound.aspx" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="deleteitem.aspx.designer.cs">
       <DependentUpon>deleteitem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="edititem.aspx.cs">
+      <DependentUpon>edititem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edititem.aspx.designer.cs">
+      <DependentUpon>edititem.aspx</DependentUpon>
     </Compile>
     <Compile Include="exceptions\Exceptions.cs" />
     <Compile Include="index.aspx.cs">

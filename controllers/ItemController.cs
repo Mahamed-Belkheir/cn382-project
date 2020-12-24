@@ -66,5 +66,20 @@ namespace CN382_Project.controllers
                 {"id", Id}
             });
         }
+
+        public void editItem(int Id, int userId, Dictionary<string, string> data)
+        {
+            var results = items.Find(null, new Dictionary<string, string>(){
+                {"id", Id.ToString()},
+                {"user_id", userId.ToString()}
+            });
+            if (results.Length == 0)
+            {
+                throw new NotFound("item");
+            }
+            items.Patch(data, new Dictionary<string, string>() { 
+                {"id", Id.ToString()}
+            });
+        }
     }
 }

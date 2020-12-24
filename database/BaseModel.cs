@@ -141,7 +141,8 @@ namespace CN382_Project.database
         public void Patch(Dictionary<string, string> data, Dictionary<string, string> query = null)
         {
             string sql = "UPDATE " + tableName + " SET ";
-            sql += getSetFormatted(data.Keys.ToArray());
+            string[] keys = data.Keys.Select(x => "[" + x + "]").ToArray();
+            sql += getSetFormatted(keys);
 
             if (query != null)
             {
