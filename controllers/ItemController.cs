@@ -11,10 +11,12 @@ namespace CN382_Project.controllers
     public class ItemController
     {
         ItemModel items;
+        FavoriteModel favorites;
 
         public ItemController()
         {
             items = new ItemModel();
+            favorites = new FavoriteModel();
         }
 
         public Item[] fetchAlItems() {
@@ -26,6 +28,11 @@ namespace CN382_Project.controllers
             return items.Find(null, new Dictionary<string, string>(){
                 {"user_id", userId.ToString()}
             });
+        }
+
+        public Item[] fetchUserFavorites(int userId)
+        {
+            return favorites.GetFavorites(userId);
         }
 
         public Item fetchById(string Id)
@@ -80,6 +87,39 @@ namespace CN382_Project.controllers
             items.Patch(data, new Dictionary<string, string>() { 
                 {"id", Id.ToString()}
             });
+        }
+
+        public void addFavorite(int userId, int itemId)
+        {
+            var results = items.Find(null, new Dictionary<string, string>(){
+                {"user_id", userId.ToString()}
+            });
+            if (results.Length == 0)
+            {
+                throw new NotFound("item");
+            }
+            if (favorites.IsFavorited(userId, itemId))
+            {
+                throw new NotPermitted("already favorited");
+            }
+            favorites.Add(new Dictionary<string, string>(){
+                {"user_id", userId.ToString()},
+                {"item_id", itemId.ToString()}
+            });
+        }
+
+        public void removeFavorite(int userId, int itemId)
+        {
+            if (!favorites.IsFavorited(userId, itemId))
+            {
+                throw new NotPermitted("not favorited");
+            }
+            favorites.DeleteFavorite(userId, itemId);
+        }
+
+        public Boolean isFavorited(int userId, int itemId)
+        {
+            return favorites.IsFavorited(userId, itemId);
         }
     }
 }

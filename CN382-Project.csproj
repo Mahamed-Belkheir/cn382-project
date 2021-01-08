@@ -90,12 +90,15 @@
     <Content Include="additem.aspx" />
     <Content Include="deleteitem.aspx" />
     <Content Include="edititem.aspx" />
+    <Content Include="fav.aspx" />
+    <Content Include="favorites.aspx" />
     <Content Include="index.aspx" />
     <Content Include="myitems.aspx" />
     <Content Include="notfound.aspx" />
     <Content Include="signin.aspx" />
     <Content Include="signout.aspx" />
     <Content Include="signup.aspx" />
+    <Content Include="unfav.aspx" />
     <Content Include="view.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -111,6 +114,7 @@
     <Compile Include="controllers\UserController.cs" />
     <Compile Include="database\BaseModel.cs" />
     <Compile Include="database\DBConn.cs" />
+    <Compile Include="database\FavoriteModel.cs" />
     <Compile Include="database\ItemModel.cs" />
     <Compile Include="database\UserModel.cs" />
     <Compile Include="default.Master.cs">
@@ -135,6 +139,20 @@
       <DependentUpon>edititem.aspx</DependentUpon>
     </Compile>
     <Compile Include="exceptions\Exceptions.cs" />
+    <Compile Include="fav.aspx.cs">
+      <DependentUpon>fav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fav.aspx.designer.cs">
+      <DependentUpon>fav.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="favorites.aspx.cs">
+      <DependentUpon>favorites.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="favorites.aspx.designer.cs">
+      <DependentUpon>favorites.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,6 +209,13 @@
     </Compile>
     <Compile Include="signup.aspx.designer.cs">
       <DependentUpon>signup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="unfav.aspx.cs">
+      <DependentUpon>unfav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="unfav.aspx.designer.cs">
+      <DependentUpon>unfav.aspx</DependentUpon>
     </Compile>
     <Compile Include="view.aspx.cs">
       <DependentUpon>view.aspx</DependentUpon>

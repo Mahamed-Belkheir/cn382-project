@@ -10,15 +10,15 @@
 namespace CN382_Project {
     
     
-    public partial class view {
+    public partial class unfav {
         
         /// <summary>
-        /// FavBtn control.
+        /// MessageBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor FavBtn;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MessageBox;
     }
 }

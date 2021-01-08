@@ -29,19 +29,20 @@ namespace CN382_Project.database
         
         public override Item[] Find(string[] select = null, Dictionary<string, string> query = null)
         {
-            return base.Find((object[] row) =>
-            {
-                Item item = new Item();
-                item.Id = (int)row[0];
-                item.UserId = (int)row[1];
-                item.Name = (string)row[2];
-                item.Price = (float)row[3];
-                item.Description = (string)row[4];
-                item.Location = (string)row[5];
-                item.Image = (string)row[6];
-                return item;
-            }, select, query);
+            return base.Find(Factory, select, query);
         }
 
+        public static Item Factory(object[] row)
+        {
+            Item item = new Item();
+            item.Id = (int)row[0];
+            item.UserId = (int)row[1];
+            item.Name = (string)row[2];
+            item.Price = (float)row[3];
+            item.Description = (string)row[4];
+            item.Location = (string)row[5];
+            item.Image = (string)row[6];
+            return item;
+        }
     }
 }

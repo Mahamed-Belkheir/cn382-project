@@ -10,27 +10,23 @@ using System.Data;
 
 namespace CN382_Project
 {
-    public partial class index1 : System.Web.UI.Page
+    public partial class favorites : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+            int userId;
             UserController userController = new UserController(Request, Response);
-            
             try
             {
-                userController.checkSession();
-                YourItems.Visible = true;
-                YouFavorites.Visible = true;
+                userId = userController.checkSession();
             }
             catch (Exception)
             {
-                YourItems.Visible = false;
-                YouFavorites.Visible = false;
+                Response.Redirect("/index.aspx", true);
+                return;
             }
             ItemController itemController = new ItemController();
-            var items = itemController.fetchAlItems();
+            var items = itemController.fetchUserFavorites(userId);
             DataTable table = new DataTable("items");
             table.Columns.Add("name");
             table.Columns.Add("price");
@@ -50,5 +46,6 @@ namespace CN382_Project
             RepeaterList.DataSource = table;
             RepeaterList.DataBind();
         }
-    }
+        }
+    
 }

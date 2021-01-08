@@ -16,7 +16,7 @@ namespace CN382_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // UserController userController = new UserController(Request, Response);
+            UserController userController = new UserController(Request, Response);
             var itemController = new ItemController();
             string itemId = Request.QueryString.Get("item");
             int x;
@@ -34,7 +34,26 @@ namespace CN382_Project
                 Response.Redirect("/notfound.aspx", true);
                 return;
             }
-           
+
+            try
+            {
+                int userId = userController.checkSession();
+                if (itemController.isFavorited(userId, itemToDisplay.Id))
+                {
+                    FavBtn.HRef = "unfav.aspx?item=" + itemToDisplay.Id.ToString();
+                    FavBtn.InnerText = "</3";
+                    
+                }
+                else
+                {
+                    FavBtn.HRef = "fav.aspx?item=" + itemToDisplay.Id.ToString();
+                    FavBtn.InnerText = "<3";
+                }
+            }
+            catch (Exception)
+            {
+                FavBtn.HRef = "signin.aspx";
+            }
         }
     }
 }

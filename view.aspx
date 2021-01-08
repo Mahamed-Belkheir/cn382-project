@@ -25,6 +25,10 @@
                         <strong>Available in:</strong>
                         <%= itemToDisplay.Location  %>
                     </div>
+                    
+                    <a runat="server" id="FavBtn" style="text-decoration: none; font-weight: 500; color: #ff275f">      
+                        Add to Favorite
+                    </a>
                     <div class="mt-2 p-2">
                         <a style="font-weight: 500; color: #61b1e2" 
                         class="text-decoration-none"

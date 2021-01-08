@@ -13,14 +13,14 @@ namespace CN382_Project.database
         public virtual string tableName { get; set; }
         public virtual string[] attributes { get; set; }
         
-        SqlConnection conn;
+        protected SqlConnection conn;
 
         public BaseModel()
         {
             conn = DBConn.getConnection();
         }
 
-        private string[] getColumnsFormatted(string[] attrs, bool withParen = true)
+        protected string[] getColumnsFormatted(string[] attrs, bool withParen = true)
         {
             
             string paramsString = "";
@@ -52,7 +52,7 @@ namespace CN382_Project.database
             return new string[] { paramsString, columnsString };
         }
 
-        private string getQueryFormatted(Dictionary<string, string> query)
+        protected string getQueryFormatted(Dictionary<string, string> query)
         {
             string result = "";
             for (int i = 0; i < query.Count; i++)
@@ -65,7 +65,7 @@ namespace CN382_Project.database
             return result;
         }
 
-        private string getSetFormatted(string[] values)
+        protected string getSetFormatted(string[] values)
         {
             string result = "";
             for (int i = 0; i < values.Length; i++)

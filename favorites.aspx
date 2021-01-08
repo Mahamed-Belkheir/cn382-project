@@ -1,26 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/index.master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="CN382_Project.index1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/index.master" AutoEventWireup="true" CodeBehind="favorites.aspx.cs" Inherits="CN382_Project.favorites" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container d-flex flex-column justify-content-center">
-        <div class="d-flex justify-content-between align-items-center p-4 w-100  bg-white shadow-sm" style="color: #424242">
-            <h4>Items on the Market</h4>
-            <span>
-                <a 
-                    style="text-decoration: none; font-weight: 500; color: #61b1e2"
-                    href="myitems.aspx"
-                    runat="server"
-                    id="YourItems"
-                    >
-                    Your Items
-                </a>
-                <a 
-                    style="text-decoration: none; font-weight: 500; color: #61b1e2"
-                    href="favorites.aspx"
-                    runat="server"
-                    id="YouFavorites"
-                    >
-                    Your Favorites
-                </a>
-            </span>
+        <div class="d-flex p-4 w-100 justify-content-between align-items-center  bg-white shadow-sm" style="color: #424242">
+            <h4>Your favorites</h4>
+            
         </div>
         <form runat="server" class="bg-white shadow-sm mt-5">
             <asp:Repeater ID="RepeaterList" runat="server">
@@ -34,13 +17,13 @@
                         <div class="col-2">
                             Name
                         </div>
-                        <div class="col-5">
+                        <div class="col-2">
                             Price
                         </div>
                         <div class="col-2">
                             Location
                         </div>
-                        <div class="col-1">
+                        <div class="col-4">
                             
                         </div>
                     </div>
@@ -57,19 +40,19 @@
                         <div class="col-2">
                             <%#DataBinder.Eval(Container.DataItem, "name")%> 
                         </div>
-                        <div class="col-5">
+                        <div class="col-2">
                             <%#DataBinder.Eval(Container.DataItem, "price") %> LYD
                         </div>
                         <div class="col-2">
                             <%#DataBinder.Eval(Container.DataItem, "location") %>
                         </div>
-                        <div class="col-1">
+                        <div class="col-2">
                             <asp:HyperLink runat="server"
-                                NavigateUrl='<%# "/view.aspx?item=" + DataBinder.Eval(Container.DataItem, "id")%>'
-                                Text="View"
-                                 style="text-decoration: none; font-weight: 500; color: #61b1e2"
+                                NavigateUrl='<%# "/unfav.aspx?item=" + DataBinder.Eval(Container.DataItem, "id")%>'
+                                Text="unfavorite"
+                                style="text-decoration: none; font-weight: 500"
+                                CssClass="text-danger"
                                 >
-
                             </asp:HyperLink>
                         </div>
                     </div>
